@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MAGYC: MAgnetometer and GYroscope Calibration based on a factor graph approach">
+  <meta name="keywords" content="MAGYC, magyc">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAGYC: MAgnetometer and GYroscope Calibration</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/compas_favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="./static/images/compas_logo.png" alt="Logo CoMPAS" style="max-width: 200px; margin-bottom: 50px;">
+          <img src="./static/images/mbari_logo.png" alt="Logo MBARI" style="max-width: 400px; margin-bottom: 50px; margin-left: 100px;">
+          <h1 class="title is-1 publication-title">Full Magnetometer and Gyroscope Bias Estimation using Angular Rates: Theory and Experimental Evaluation of a Factor Graph-Based Approach</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=VITIKcsAAAAJ&hl=en">Sebastián Rodríguez-Martínez</a> and </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7nLHDsMAAAAJ&hl=en">Giancarlo Troni</a></span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Monterey Bay Aquarium Research Institute (MBARI)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/CoMPASLab/magyclib"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Code Docs Link. -->
+              <span class="link-block">
+                <a href="https://compaslab.github.io/magyclib/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-obp"></i>
+                  </span>
+                  <span>Code Docs</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1c5Y1y3PU0pYVrRuZwQGtYYlmj3X2twRm/view?usp=drive_link"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-open-data"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              <!-- Pypi Link. -->
+              <span class="link-block">
+                <a href="https://pypi.org/project/magyc/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-python"></i>
+                  </span>
+                  <span>Pypi Package</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <img src="./static/images/magyc_cover_figure.png">
+        </div>
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Despite their widespread use in determining system attitude, Micro-Electro-Mechanical
+            Systems (MEMS) Attitude and Heading Reference Systems (AHRS) are limited by sensor measurement biases.
+            This paper introduces a method called MAgnetometer and GYroscope Calibration (MAGYC), leveraging
+            three-axis angular rate measurements from an angular rate gyroscope to estimate both the hard-
+            and soft-iron biases of magnetometers as well as the bias of gyroscopes.
+          </p>
+          <p>
+            We present two implementation methods of this approach based on batch and online incremental
+            factor graphs. Our method imposes fewer restrictions on instrument movements required for calibration,
+            eliminates the need for knowledge of the local magnetic field magnitude or instrument's attitude,
+            and facilitates integration into factor graph algorithms for Smoothing and Mapping frameworks.
+          </p>
+          <p>
+            We validate the proposed methods through numerical simulations and in-field experimental evaluations
+            with a sensor onboard an underwater vehicle. By implementing the proposed method in field data of a
+            seafloor mapping dive, the dead reckoning-based position estimation error of the underwater vehicle
+            was reduced from 10% to 0.5% of the distance traveled.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Overview Section. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">MAGYC: MAgnetometer and GYroscope Calibration</h2>
+        <div class="content has-text-justified">
+          <p>
+            The previously reported approaches exhibit at least one of the following limitations that restrict their implementation scenarios:
+          </p>
+          <ul>
+            <li>The necessity for extensive angular motion in all three rotational degrees of freedom, often impractical for devices mounted on full-scale vehicles like pitch and roll-stable ROVs;</li>
+            <li>The requirement for knowledge of the local Earth's magnetic field magnitude from magnetic field models, which may introduce significant errors due to unmodeled local perturbations;</li>
+            <li>The inability to determine the magnetometer's soft-iron error, neglecting non-orthogonalities and scale factors that affect systems surrounded by ferromagnetic materials such as iron and steel, resulting in less accurate output.</li>
+          </ul>
+          <p>
+            This paper presents a novel approach called MAgnetometer and GYroscope Calibration (MAGYC), effectively overcoming these challenges. The approach facilitates two factor graph-based methods. The MAGYC approach offers several notable advantages, including:
+          </p>
+          <ul>
+            <li>Fewer restrictions on angular movement requirements;</li>
+            <li>No requirement for information about the local magnetic field or system's attitude;</li>
+            <li>Complete calibration for both magnetometer and gyroscope;</li>
+            <li>Integration into factor graph algorithms for smoothing and mapping frameworks with tools such as GTSAM.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Overview Section. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Simulation Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Simulation Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            A Monte Carlo numerical simulation was conducted to replicate 6,000 measurements from a MEMS AHRS
+            during the sinusoidal motions of a vehicle. This simulation was designed to emulate a magnetometer
+            calibration platform for an articulated vehicle or one with pitching capabilities in the Wide Angular
+            Movement (WAM) dataset, a magnetometer calibration for a roll-and-pitch stable vehicle in the Mid
+            Angular Movement (MAM) dataset, and a survey for a vehicle with the same capabilities as described
+            in WAM for the Low Angular Movement (LAM) dataset.
+          </p>
+          <p>
+            The following table shows the evaluation of the calibration datasets using as metrics the mean heading
+            RMSE and magnetic field standard deviation metrics for three batch and two real-time
+            calibration methods across three simulated datasets, evaluated over 100 validation simulations.
+            The best two results in each column are <strong>bolded</strong>, while the percentage superscript indicates
+            the failure rate to converge to a solution in a subset of simulations
+          </p>
+        </div>
+        <div class="content has-text-justified">
+          <img src="./static/images/magyc_simulation_results.png">
+        </div>
+      </div>
+    </div>
+    <!--/ Simulation Results. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Field Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Field Results</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/magyc_vehicles.png">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            We evaluated the in-field performance of the proposed and benchmark methods using two seafloor mapping
+            survey dives conducted in 2014 and 2024 in Monterey Bay. In both deployments, two field experiments were
+            carried out during the survey. The first, labeled EXP1-14 and EXP1-24, involved magnetometer calibration
+            procedures with the platform fixed at a pitch of 0 degrees. This experiment included a series of
+            360-degree heading rotations, with pitch and roll oscillating around 5 degrees due to vehicle dynamics.
+            The second experiment, labeled EXP2-14 and EXP2-24, consisted of a seafloor mapping survey conducted in a
+            "mowing the lawn" pattern. In EXP2-14, the platform was fixed, while in EXP2-24, it actively followed
+            the seafloor.
+          </p>
+          <p>
+            The following figure displays the field experiment results: (a) shows the heading error for calibration
+            parameters estimated in experiments EXP1-14 (solid bars) and EXP1-24 (hatched bars), evaluated in EXP2-14
+            and EXP2-24, respectively. Red dashed lines indicate instances where parameter estimation
+            failed. (b) shows the norm of XY position error for EXP2-14, with total method-wise error and error relative
+            to the distance traveled, summarized in the table below.
+          </p>
+        </div>
+        <div class="content has-text-justified">
+          <img src="./static/images/magyc_field_results.png">
+        </div>
+      </div>
+    </div>
+    <!--/ Field Results. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Conclusions -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Conclusions</h2>
+        <div class="content has-text-justified">
+          <p>
+            Numerical simulations showed that the MAGYC methods excel in various scenarios, not only surpassing
+            benchmark methods in their ideal conditions but also maintaining robustness under constrained angular
+            movements. Additionally, field evaluation results underscore the substantial enhancements in position
+            estimation accuracy achieved by the MAGYC methods, demonstrating their effectiveness in diverse and
+            challenging underwater navigation conditions. These methods achieved substantial reductions in heading
+            errors compared to previously reported techniques, thereby enhancing underwater vehicle navigation,
+            particularly in standard oceanographic surveys, and reaffirming their practical applicability.
+          </p>
+          <p>
+            In conclusion, the MAGYC methods proposed in this study offer a viable and effective solution for
+            calibrating magnetometers and gyroscopes for attitude estimation. These findings are expected to benefit
+            the development of low-cost navigation systems and enhance the performance of ground, marine, and aerial
+            vehicles in real-world applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Conclusions -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Acknowledgments -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Acknowledgments</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work was supported by the David and Lucile Packard Foundation and FONDECYT-Chile under grant
+            11180907. The field experimental data used in this study were collected in oceanographic surveys
+            conducted by the Monterey Bay Aquarium Research Institute, led by Chief Scientist Dr. David Caress.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Acknowledgments -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{TBD,
+  author    = {TBD},
+  title     = {Full Magnetometer and Gyroscope Bias Estimation using Angular Rates: Theory and Experimental Evaluation of a Factor Graph-Based Approach},
+  journal   = {TBD},
+  year      = {TBD},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
