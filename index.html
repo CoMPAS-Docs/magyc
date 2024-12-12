@@ -186,23 +186,19 @@
         <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Overview</h2>
         <div class="content has-text-justified">
           <p>
-            Despite their widespread use in determining system attitude, Micro-Electro-Mechanical
-            Systems (MEMS) Attitude and Heading Reference Systems (AHRS) are limited by sensor measurement biases.
-            This paper introduces a method called MAgnetometer and GYroscope Calibration (MAGYC), leveraging
-            three-axis angular rate measurements from an angular rate gyroscope to estimate both the hard-
-            and soft-iron biases of magnetometers as well as the bias of gyroscopes.
+            Micro-Electro-Mechanical Systems (MEMS) Attitude and Heading Reference Systems (AHRS) are commonly
+            used for determining system attitude but are limited by sensor biases. This paper introduces
+            MAgnetometer and GYroscope Calibration (MAGYC), a method that estimates hard- and soft-iron
+            magnetometer biases and gyroscope bias using three-axis angular rate measurements.
           </p>
           <p>
-            We present two implementation methods of this approach based on batch and online incremental
-            factor graphs. Our method imposes fewer restrictions on instrument movements required for calibration,
-            eliminates the need for knowledge of the local magnetic field magnitude or instrument's attitude,
-            and facilitates integration into factor graph algorithms for Smoothing and Mapping frameworks.
+            The MAGYC approach uses batch and online incremental factor graphs, reducing calibration constraints,
+            removing the need for local magnetic field data, and enabling integration into Smoothing and Mapping
+            frameworks. 
           </p>
           <p>
-            We validate the proposed methods through numerical simulations and in-field experimental evaluations
-            with a sensor onboard an underwater vehicle. By implementing the proposed method in field data of a
-            seafloor mapping dive, the dead reckoning-based position estimation error of the underwater vehicle
-            was reduced from 10% to 0.5% of the distance traveled.
+            Field tests on an underwater vehicle reduced dead reckoning-based position error from 10% to 0.5% of
+            the distance traveled.
           </p>
         </div>
       </div>
@@ -219,15 +215,8 @@
         <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">MAGYC: MAgnetometer and GYroscope Calibration</h2>
         <div class="content has-text-justified">
           <p>
-            The previously reported approaches exhibit at least one of the following limitations that restrict their implementation scenarios:
-          </p>
-          <ul>
-            <li>The necessity for extensive angular motion in all three rotational degrees of freedom, often impractical for devices mounted on full-scale vehicles like pitch and roll-stable ROVs;</li>
-            <li>The requirement for knowledge of the local Earth's magnetic field magnitude from magnetic field models, which may introduce significant errors due to unmodeled local perturbations;</li>
-            <li>The inability to determine the magnetometer's soft-iron error, neglecting non-orthogonalities and scale factors that affect systems surrounded by ferromagnetic materials such as iron and steel, resulting in less accurate output.</li>
-          </ul>
-          <p>
-            This paper presents a novel approach called MAgnetometer and GYroscope Calibration (MAGYC), effectively overcoming these challenges. The approach facilitates two factor graph-based methods. The MAGYC approach offers several notable advantages, including:
+            This paper presents a novel factor graph-based approach called MAgnetometer and GYroscope Calibration
+            (MAGYC), which offers several advantages, including:
           </p>
           <ul>
             <li>Fewer restrictions on angular movement requirements;</li>
@@ -250,19 +239,16 @@
         <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Simulation Results</h2>
         <div class="content has-text-justified">
           <p>
-            A Monte Carlo numerical simulation was conducted to replicate 6,000 measurements from a MEMS AHRS
-            during the sinusoidal motions of a vehicle. This simulation was designed to emulate a magnetometer
-            calibration platform for an articulated vehicle or one with pitching capabilities in the Wide Angular
-            Movement (WAM) dataset, a magnetometer calibration for a roll-and-pitch stable vehicle in the Mid
-            Angular Movement (MAM) dataset, and a survey for a vehicle with the same capabilities as described
-            in WAM for the Low Angular Movement (LAM) dataset.
+            A Monte Carlo simulation generated 6,000 measurements from a MEMS AHRS during vehicle sinusoidal motions.
+            Three datasets were evaluated: Wide Angular Movement (WAM) for an articulated vehicle, Mid Angular
+            Movement (MAM) for a roll-and-pitch stable vehicle, and Low Angular Movement (LAM) for a surveying vehicle
+            with limited motion.
           </p>
           <p>
-            The following table shows the evaluation of the calibration datasets using as metrics the mean heading
-            RMSE and magnetic field standard deviation metrics for three batch and two real-time
-            calibration methods across three simulated datasets, evaluated over 100 validation simulations.
-            The best two results in each column are <strong>bolded</strong>, while the percentage superscript indicates
-            the failure rate to converge to a solution in a subset of simulations
+            The table below compares the mean heading RMSE and magnetic field standard deviation for three batch and
+            two real-time calibration methods across the datasets, based on 100 validation runs.
+            The top two results in each column are <strong>bolded</strong>, with superscripts indicating
+            the failure rate in some simulations.
           </p>
         </div>
         <div class="content has-text-justified">
@@ -273,6 +259,7 @@
     <!--/ Simulation Results. -->
   </div>
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -285,21 +272,17 @@
         </div>
         <div class="content has-text-justified">
           <p>
-            We evaluated the in-field performance of the proposed and benchmark methods using two seafloor mapping
-            survey dives conducted in 2014 and 2024 in Monterey Bay. In both deployments, two field experiments were
-            carried out during the survey. The first, labeled EXP1-14 and EXP1-24, involved magnetometer calibration
-            procedures with the platform fixed at a pitch of 0 degrees. This experiment included a series of
-            360-degree heading rotations, with pitch and roll oscillating around 5 degrees due to vehicle dynamics.
-            The second experiment, labeled EXP2-14 and EXP2-24, consisted of a seafloor mapping survey conducted in a
-            "mowing the lawn" pattern. In EXP2-14, the platform was fixed, while in EXP2-24, it actively followed
-            the seafloor.
+            The in-field performance of the proposed and benchmark methods was evaluated during two seafloor mapping
+            surveys in Monterey Bay (2014 and 2024). Each deployment included two experiments.
+            The first, EXP1-14 and EXP1-24, involved 360-degree heading rotations with the platform fixed at 0 degrees pitch,
+            while pitch and roll oscillated slightly due to vehicle dynamics.
+            The second, EXP2-14 and EXP2-24, consisted of "mowing the lawn" surveys: a static platform in EXP2-14 and
+            an active seafloor-following vehicle in EXP2-24.
           </p>
           <p>
-            The following figure displays the field experiment results: (a) shows the heading error for calibration
-            parameters estimated in experiments EXP1-14 (solid bars) and EXP1-24 (hatched bars), evaluated in EXP2-14
-            and EXP2-24, respectively. Red dashed lines indicate instances where parameter estimation
-            failed. (b) shows the norm of XY position error for EXP2-14, with total method-wise error and error relative
-            to the distance traveled, summarized in the table below.
+            The figure below shows field results: (a) heading errors for parameters from EXP1-14 (solid) and EXP1-24 (hatched)
+            applied to EXP2-14 and EXP2-24, with red dashed lines marking failures.
+            (b) Norm of XY position errors for EXP2-14, with total and relative errors summarized in the table.
           </p>
         </div>
         <div class="content has-text-justified">
@@ -311,6 +294,7 @@
   </div>
 </section>
 
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Conclusions -->
@@ -319,19 +303,14 @@
         <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Conclusions</h2>
         <div class="content has-text-justified">
           <p>
-            Numerical simulations showed that the MAGYC methods excel in various scenarios, not only surpassing
-            benchmark methods in their ideal conditions but also maintaining robustness under constrained angular
-            movements. Additionally, field evaluation results underscore the substantial enhancements in position
-            estimation accuracy achieved by the MAGYC methods, demonstrating their effectiveness in diverse and
-            challenging underwater navigation conditions. These methods achieved substantial reductions in heading
-            errors compared to previously reported techniques, thereby enhancing underwater vehicle navigation,
-            particularly in standard oceanographic surveys, and reaffirming their practical applicability.
+            The MAGYC methods demonstrated superior performance in simulations and field tests, excelling under ideal
+            and constrained conditions. Field evaluations highlighted significant improvements in position accuracy
+            and heading error reduction, confirming their practicality for underwater navigation in challenging environments.
           </p>
           <p>
-            In conclusion, the MAGYC methods proposed in this study offer a viable and effective solution for
-            calibrating magnetometers and gyroscopes for attitude estimation. These findings are expected to benefit
-            the development of low-cost navigation systems and enhance the performance of ground, marine, and aerial
-            vehicles in real-world applications.
+            These results establish MAGYC as a reliable solution for magnetometer and gyroscope calibration,
+            supporting low-cost navigation system development and improving the performance of marine, aerial,
+            and ground vehicles in real-world applications.
           </p>
         </div>
       </div>
