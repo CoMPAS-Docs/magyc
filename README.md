@@ -1,6 +1,6 @@
 # MAGYC
 
-This is the repository that contains source code for the [MAGYC website](https://compas-docs.github.io/2024_iros_magyc_wp/).
+This is the repository that contains source code for the [MAGYC website](https://compas-docs.github.io/magyc/).
 
 If you find MAGYC useful for your work please cite:
 ```
