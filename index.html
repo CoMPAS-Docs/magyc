@@ -207,7 +207,6 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Overview Section. -->
@@ -334,6 +333,59 @@
       </div>
     </div>
     <!--/ Conclusions -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Example Code: Simulation Data -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Example Code: Simulation Data</h2>
+        <span class="link-block">
+          <a href="https://github.com/CoMPASLab/magyclib/blob/main/example/20241107_sim_calibration.ipynb"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fab fa-python"></i>
+            </span>
+            <span>Jupyter Notebook - Calibration</span>
+          </a>
+          <span class="link-block">
+            <a href="https://github.com/CoMPASLab/magyclib/blob/main/example/20241107_sim_evaluation.ipynb"
+               class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fab fa-python"></i>
+              </span>
+              <span>Jupyter Notebook - Cross Validation</span>
+            </a>
+        <div class="content has-text-justified">
+          <p>
+            We provide two examples for calibration and evaluation of the MAGYC and benchmark methods as jupyter notebooks
+            in the <a href="https://github.com/CoMPASLab/magyclib">magyclib repository</a>. The notebooks are available
+            in the examples directory, and to use them is neccesary to build
+            <a href="https://python-poetry.org/">poetry</a> using the command <code>poetry build</code> and then using
+            that environment as kernel in the jupyter notebooks.
+          </p>
+          <p>
+            The calibration dataset corresponds to the simulated data used in the paper: "Full Magnetometer and Gyroscope
+            Bias Estimation Using Angular Rates: Theory and Experimental Evaluation of a Factor Graph-Based Approach"
+            by S. Rodríguez-Martínez and G. Troni, 2024. The dataset is available on <a href="https://drive.google.com/file/d/1c5Y1y3PU0pYVrRuZwQGtYYlmj3X2twRm/view?usp=drive_link">Google Drive</a>.
+          </p>
+          <h3 class="title is-4" style="color: #1b75bc;font-weight: bolder;">MAGYC Example - Simulated Data Calibration & Self Evaluation</h3>
+          <p>
+            This notebook demonstrates how to use the MAGYC algorithms to calibrate a magnetometer and gyroscope
+            using simulated data and provides a comparison with benchmark methods for calibration. Then, the results
+            are self evaluated.
+          </p>
+          <h3 class="title is-4" style="color: #1b75bc;font-weight: bolder;">MAGYC Example - Simulated Data Cross Validation</h3>
+          <p>
+            This notebook evaluates the MAGYC and benchmark algorithms formagnetometer and gyroscope calibration using
+            simulated data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Example Code: Simulation Data -->
   </div>
 </section>
 
