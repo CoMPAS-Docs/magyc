@@ -82,7 +82,6 @@
   </div>
 </nav>
 
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -324,49 +323,59 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Example Code: Simulation Data -->
+    <!-- Python Library -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Example Code: Simulation Data</h2>
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">Python Library</h2>
+        <!-- Code Link -->
         <span class="link-block">
-          <a href="https://github.com/CoMPASLab/magyclib/blob/main/example/20241107_sim_calibration.ipynb"
+          <a href="https://github.com/CoMPASLab/magyclib"
              class="external-link button is-normal is-rounded is-dark">
             <span class="icon">
-                <i class="fab fa-python"></i>
+                <i class="fab fa-github"></i>
             </span>
-            <span>Jupyter Notebook - Calibration</span>
+            <span>Code</span>
           </a>
-          <span class="link-block">
-            <a href="https://github.com/CoMPASLab/magyclib/blob/main/example/20241107_sim_evaluation.ipynb"
-               class="external-link button is-normal is-rounded is-dark">
-              <span class="icon">
-                  <i class="fab fa-python"></i>
-              </span>
-              <span>Jupyter Notebook - Cross Validation</span>
-            </a>
+        </span>
+        <!-- Code Docs Link -->
+        <span class="link-block">
+          <a href="https://compaslab.github.io/magyclib/"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="ai ai-obp"></i>
+            </span>
+            <span>Documentation</span>
+          </a>
+        </span>
+        <!-- PyPI Link -->
+        <span class="link-block">
+          <a href="https://pypi.org/project/magyc/"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <i class="fab fa-python"></i>
+            </span>
+            <span>PyPI Package</span>
+          </a>
+        </span>
         <div class="content has-text-justified">
           <p>
-            We provide two examples for calibration and evaluation of the MAGYC and benchmark methods as jupyter notebooks
-            in the <a href="https://github.com/CoMPASLab/magyclib">magyclib repository</a>. The notebooks are available
-            in the examples directory, and to use them is neccesary to build
-            <a href="https://python-poetry.org/">poetry</a> using the command <code>poetry build</code> and then using
-            that environment as kernel in the jupyter notebooks.
+            The MAGYC method is available as the Python library <a href="https://pypi.org/project/magyc/">magyc</a>, 
+            which can be installed with <code>pip install magyc</code>. Developers can clone the 
+            <a href="https://github.com/CoMPASLab/magyclib">magyclib repository</a> and use 
+            <a href="https://python-poetry.org/">poetry</a> to manage dependencies and build the library with 
+            <code>poetry build</code>. See the <a href="https://compaslab.github.io/magyclib/">documentation</a> 
+            for more details.
           </p>
-          <h3 class="title is-4" style="color: #1b75bc;font-weight: bolder;">MAGYC Example - Simulated Data Calibration & Self Evaluation</h3>
+          <h3 class="title is-4" style="color: #1b75bc;font-weight: bolder;">Example Code</h3>
           <p>
-            This notebook demonstrates how to use the MAGYC algorithms to calibrate a magnetometer and gyroscope
-            using simulated data and provides a comparison with benchmark methods for calibration. Then, the results
-            are self evaluated.
-          </p>
-          <h3 class="title is-4" style="color: #1b75bc;font-weight: bolder;">MAGYC Example - Simulated Data Cross Validation</h3>
-          <p>
-            This notebook evaluates the MAGYC and benchmark algorithms formagnetometer and gyroscope calibration using
-            simulated data.
+            Calibration and evaluation examples are provided as Jupyter notebooks in the 
+            <a href="https://github.com/CoMPASLab/magyclib/examples">magyclib repository</a>. Further details are 
+            available in the <a href="https://compaslab.github.io/magyclib/example/">documentation</a>.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Example Code: Simulation Data -->
+    <!--/ Python Library -->
   </div>
 </section>
 
