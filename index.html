@@ -212,27 +212,29 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Overview Section. -->
+    <!-- Overview Section -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">MAGYC: MAgnetometer and GYroscope Calibration</h2>
+        <h2 class="title is-3" style="color: #1b75bc;font-weight: bolder;">MAGYC: Magnetometer and Gyroscope Calibration</h2>
         <div class="content has-text-justified">
           <p>
-            This paper presents a novel factor graph-based approach called MAgnetometer and GYroscope Calibration
-            (MAGYC), which offers several advantages, including:
+            This paper introduces MAGYC, a factor graph-based method for magnetometer and gyroscope calibration, offering:
           </p>
           <ul>
-            <li>Fewer restrictions on angular movement requirements;</li>
-            <li>No requirement for information about the local magnetic field or system's attitude;</li>
-            <li>Complete calibration for both magnetometer and gyroscope;</li>
-            <li>Integration into factor graph algorithms for smoothing and mapping frameworks with tools such as GTSAM.</li>
+            <li>Minimal angular movement requirements;</li>
+            <li>No need for local magnetic field or attitude information;</li>
+            <li>Comprehensive calibration of magnetometer and gyroscope;</li>
+            <li>Seamless integration with factor graph frameworks like GTSAM.</li>
           </ul>
+          <p>
+            MAGYC performs complete calibration of a three-axis magnetometer (hard- and soft-iron) and gyroscope using magnetometer and angular rate measurements, independent of the instrument's attitude. It includes two approaches: batch (MAGYC-BFG) and online incremental (MAGYC-IFG) factor graph methods.
+          </p>
         </div>
       </div>
     </div>
-    <!--/ Overview Section. -->
-  </div>
+    <!--/ Overview Section -->
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
