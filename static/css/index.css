@@ -105,3 +105,24 @@ body {
   height: auto;
   max-width: 100%;
 }
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.logo-image {
+  width: auto;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+.logo-image:first-child {
+  max-width: 33%;
+}
+
+.logo-image:last-child {
+  max-width: 66%;
+}

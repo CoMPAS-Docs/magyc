@@ -3,12 +3,18 @@
 This is the repository that contains source code for the [MAGYC website](https://compas-docs.github.io/magyc/).
 
 If you find MAGYC useful for your work please cite:
-```
-@article{tbd
-  author    = tbd},
-  title     = {tbd},
-  journal   = {tbd},
-  year      = {tbd},
+
+``` bibtex
+@ARTICLE{10908715,
+  author={Rodríguez-Martínez, Sebastián and Troni, Giancarlo},
+  journal={IEEE Journal of Oceanic Engineering},
+  title={Full Magnetometer and Gyroscope Bias Estimation Using Angular Rates: Theory and Experimental Evaluation of a Factor Graph-Based Approach}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-10},
+  keywords={Magnetometers;Calibration;Gyroscopes;Magnetic tunneling;Mathematical models;Magnetic domains;Estimation;Accelerometers;Noise measurement;Earth;Doppler navigation;gyroscope bias calibration;magnetometer hard-iron bias and soft-iron bias calibration;marine robotics;sensor fusion},
+  doi={10.1109/JOE.2024.3523701}
 }
 ```
 
