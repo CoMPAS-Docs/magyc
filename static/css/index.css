@@ -99,3 +99,9 @@ body {
 .publication-body img {
   /* Add styles if needed */
 }
+
+.responsive-image {
+  width: 60%;
+  height: auto;
+  max-width: 100%;
+}
